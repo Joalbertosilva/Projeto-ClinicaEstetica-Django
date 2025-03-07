@@ -1,0 +1,89 @@
+
+        /* Resetando margens e preenchimentos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilo da barra de navegação personalizada */
+        .navbar-custom {
+            width: 100%;
+            background: linear-gradient(90deg, #bddeef, #c6d9e1);
+        }
+
+        /* Estilização do botão de login */
+        .btn-login {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            transition: 0.3s;
+        }
+
+        .btn-login:hover {
+            background-color: #003d7a;
+        }
+
+        
+        .icon-user {
+            width: 20px;
+            margin-right: 5px;
+        }
+
+        
+        .search-bar {
+            max-width: 350px;
+            margin: 10px 10px 10px 0;
+        }
+
+        .container-introducao {
+            margin-top: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            
+        }
+        .texto-inicial {
+            width: 50%;
+            margin-top: 50px;
+            font-size: 24px;
+            color: #333;
+        }
+        .texto-inicial p {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #666;
+        }
+
+        .conteudo-inicial {
+            margin-top: 50px;
+        }
+        .menu-secundario {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .menu-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+        }
+
+        .menu-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .apresentacao {
+            margin: 90px 10px 50px 10px;
+        }
+
+  

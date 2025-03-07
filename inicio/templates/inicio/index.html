@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MobStyle - Clínica</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="css/style.css">    
+ 
+    <style>
+        /* Resetando margens e preenchimentos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilo da barra de navegação personalizada */
+        .navbar-custom {
+            width: 100%;
+            background: linear-gradient(90deg, #bddeef, #c6d9e1);
+        }
+
+        /* Estilização do botão de login */
+        .btn-login {
+            background: linear-gradient(90deg, #95989a, #788287);
+            color: white;
+            border: none;
+            transition: 0.3s;
+        }
+
+        .btn-login:hover {
+            background-color: #587b96 !important;
+            transition: 0.3s;
+            color: #ffffff;
+        }
+
+        
+        .icon-user {
+            width: 20px;
+            margin-right: 5px;
+        }
+
+        
+        .search-bar {
+            max-width: 350px;
+            margin: 10px 10px 10px 0;
+        }
+
+        .container-introducao {
+            display: flex;
+            justify-content: space-between;
+            margin: 60px 10px 30px 60px;
+        }
+        .texto-inicial {
+            width: 50%;
+            margin-top: 50px;
+            font-size: 24px;
+            color: #333;
+        }
+        .texto-inicial p {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #666;
+        }
+
+        .conteudo-inicial {
+            margin-top: 50px;
+        }
+
+        .imagem-um img{
+            width: 100%;
+            max-width: 80%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-left: 5rem;
+        }
+        .menu-secundario {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 9rem;
+        }
+
+        .menu-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+        }
+
+        .menu-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .apresentacao {
+            margin: 90px 10px 50px 60px;
+        }
+
+        .container-apresentacao h2{
+            color: #000000;
+            font-size: 24px;
+            margin-bottom: 40px;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        .container-servicos {
+            display: flex;
+            flex-wrap: wrap; /* Permite quebrar linha */
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 20px;
+            margin-right: 50px;
+        }
+
+        .servico {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            width: calc(33.33% - 90px); 
+            height: auto;
+            text-align: center;
+        }
+
+        .servico:hover {
+            background-color: #2980b9;  
+        }
+        .servico img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        .preco-antigo {
+            text-decoration: line-through;
+            color: red; /* Opcional: deixa o preço antigo mais destacado */
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container-menu">
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            
+            <a class="navbar-brand fw-bold text-white" href="{% url 'index' %}">MobStyle</a>
+            
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Sobre</a>
+                    </li>
+                </ul>
+    
+                
+                <form class="d-flex me-3">
+                    <input class="form-control search-bar" type="search" placeholder="Buscar..." aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Buscar</button>
+                </form>
+    
+                
+                <a href="{% url 'login' %}" class="btn btn-login d-flex align-items-center">
+                    <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="User Icon" class="icon-user">
+                    Fazer Login
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    </div>
+    <div class="container-introducao">
+        <div class="texto-inicial">
+            <h1>Bem-vindo a Clínica Estética MobStyle</h1>
+            <p>Nossa clinica estética oferece um ambiente confortável e moderno para os nossos clientes. 
+            Nossa equipe de profissionais altamente qualificada está pronta para cuidar de todos os seus desejos.
+            Temos uma clínica voltada principalmente para cuidados masculinos. Além de cuidar de você, nosso espaço
+            também possui vários produtos que vale a pena voce conhecer. 
+            </p>
+        </div>
+        <div class="imagem-um">
+            <img src="https://www.bodyhealthbrasil.com/wp-content/uploads/2023/09/Estetica-para-homens-oportunidades-para-sua-clinica-de-estetica.jpg" alt="">
+        </div>
+    </div>
+
+    <div class="conteudo-inicial">
+        <div class="menu-secundario">
+            <button id="home" class="menu-btn" onclick="navegar('promocoes')">Promoções</button>
+            <button id="servicos" class="menu-btn" onclick="navegar('servicos')">Serviços</button>
+            <button id="profissionais" class="menu-btn" onclick="navegar('profissionais')">Profissionais</button>
+            <button id="agenda" class="menu-btn" onclick="navegar('agenda')">Agenda</button>
+            <button id="sobre" class="menu-btn" onclick="navegar('produtos')">Produtos</button>
+            <button id="contato" class="menu-btn" onclick="navegar('contato')">Contato</button>
+        </div>
+    </div>
+
+    <section class="apresentacao">
+        <div class="container-apresentacao"> 
+            <h2>Promoções da semana</h2>
+        </div>
+
+        <div class="container-servicos">
+            <div class="servico">
+                <img src="https://studioenso.com.br/wp-content/uploads/2020/11/1-espuma.jpg" alt="Barboterapia">
+                <h3>Barboterapia</h3>
+                <p>De <span class="preco-antigo">R$ 80,00</span> por R$ 50,00</p>
+            </div>
+
+            <div class="servico">
+                <img src="https://estetica.clinicaeditare.com.br/imagens/onde-faz-limpeza-pele-homem.jpg" alt="Limpeza facial">
+                <h3>Limpeza Facial</h3>
+                <p>De <span class="preco-antigo">R$ 60,00</span> por R$ 40,00</p>
+            </div>
+
+            <div class="servico">
+                <img src="https://www.beautymarket.es/estetica/fotos/16489_notbme2grande.jpg" alt="Manicure">
+                <h3>Manicure</h3>
+                <p>De <span class="preco-antigo">R$ 70,00</span> por R$ 45,00</p>
+            </div>  
+            <div class="servico">
+                <img src="https://a-static.mlcdn.com.br/1500x1500/maquina-de-barbear-aparador-de-pelos-3-em-1-recarregavel-110-220v-daling-dl-9006/vfmagazineltda/15946762076/c905403a17e791ea93a46cadec7540ec.jpeg" alt="Barbeador">
+                <h3>Barbeador</h3>
+                <p>De <span class="preco-antigo">R$ 150,00</span> por R$ 110,00</p>
+            </div>
+            <div class="servico">
+                <img src="https://barbabrasil.com/cdn/shop/products/pomada_molhado_50.jpg?v=1613496573" alt="Pomada para cabelo">
+                <h3>Pomada para cabelo</h3>
+                <p>De <span class="preco-antigo">R$ 30,00</span> por R$ 20,00</p>
+            </div>
+            <div class="servico">
+                <img src="https://amobeleza.vtexassets.com/arquivos/ids/239720/kit-facial-masculino-sabonete-liquido-corpo-e-rosto-cento-e-cinquenta-ml-hidratante-sessenta-ml-foto-zero.jpg?v=638092418572400000" alt="Kit Facial">
+                <h3>Kit Facial</h3>
+                <p>De <span class="preco-antigo">R$ 200,00</span> por R$ 150,00</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <!-- Coluna 1: Sobre -->
+                <div class="col-md-4">
+                    <h5>Sobre Nós</h5>
+                    <p>Somos uma clínica estética dedicada ao bem-estar masculino. Oferecemos serviços de alta qualidade para cuidar de você.</p>
+                </div>
+    
+                <!-- Coluna 2: Links Úteis -->
+                <div class="col-md-4">
+                    <h5>Links Úteis</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">Home</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Serviços</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Promoções</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Contato</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Coluna 3: Contato e Redes Sociais -->
+                <div class="col-md-4">
+                    <h5>Contato</h5>
+                    <p>Email: contato@mobstyle.com</p>
+                    <p>Telefone: (11) 99999-9999</p>
+                    <div>
+                        <a href="#" class="text-light me-3"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-whatsapp fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Linha de Copyright -->
+            <div class="text-center mt-3">
+                <p class="mb-0">&copy; 2024 MobStyle. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Adicione Bootstrap e Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/YOUR-FONT-AWESOME-KIT.js" crossorigin="anonymous"></script>
+    
+
+    <script>
+        function navegar(pagina) {
+            window.location.href = `/${pagina}/`;
+        }
+    </script>
+    
+</body>
+</html>
