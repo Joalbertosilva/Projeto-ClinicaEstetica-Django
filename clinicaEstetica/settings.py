@@ -45,7 +45,7 @@ ROOT_URLCONF = 'clinicaEstetica.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "inicio/templates"], 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -111,6 +111,9 @@ USE_TZ = True
 import os
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 MEDIA_URL = '/media/'  # Para imagens enviadas pelo usuário
 
 STATICFILES_DIRS = [
