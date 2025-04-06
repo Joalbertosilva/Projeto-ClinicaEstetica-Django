@@ -1,4 +1,5 @@
- {% extends 'inicio/base.html' %}
+
+{% extends 'inicio/base.html' %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,16 +38,6 @@
             </div>
         </div>
         
-        
-        <div class="popup-ad" id="popupAd">
-            <div class="popup-content">
-                <span class="close-btn" onclick="closePopup()">&times;</span>
-                <img src="https://img.freepik.com/vetores-premium/mega-venda-banner-vetor-com-design-moderno-e-cores-vibrantes_1035-24507.jpg" alt="Super Promoção">
-                <h4>Frete Grátis em Compras Acima de R$ 200!</h4>
-                <p>Não perca essa chance. Adicione seus itens favoritos ao carrinho agora mesmo.</p>
-                <a href="#" class="btn btn-danger btn-sm">Aproveitar Oferta</a>
-            </div>
-        </div>
         
         <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
@@ -87,69 +78,26 @@
             </button>
           </div>
 
-          <div class="container mt-4">
-            <div class="row row-cols-5 g-3">
-               
-                <div class="col">
-                    <div class="product-card">
-                        <img src="https://blog.mensmarket.com.br/wp-content/uploads/2018/01/sabonete-liquido-facial-mens.jpg" class="product-img" alt="Produto 1">
-                        <h6 class="mt-2">Produto 1</h6>
-                        <p class="text-muted">R$ 99,90</p>
-                        <button class="btn btn-primary btn-sm">Comprar</button>
+        <div class="container mt-4">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                {% for produto in produtos %}
+                    <div class="col">
+                        <div class="product-card">
+                            <img src="{{ produto.imagem_url }}" class="product-img" alt="{{ produto.nome }}">
+                            <h6 class="mt-2">{{ produto.nome }}</h6>
+                            <p>{{ produto.descricao }}</p>
+                            <p class="text-muted">R$ {{ produto.preco }}</p>
+                            {% if produto.em_promocao %}
+                                <span class="badge bg-success">Promoção</span>
+                            {% endif %}
+                            <button class="btn btn-primary btn-sm">Comprar</button>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="col">
-                    <div class="product-card">
-                        <img src="https://images-americanas.b2w.io/produtos/252725171/imagens/kit-limpeza-de-pele-facial-completa-adcos/252725171_1_large.jpg" class="product-img" alt="Produto 2">
-                        <h6 class="mt-2">Produto 2</h6>
-                        <p class="text-muted">R$ 149,90</p>
-                        <button class="btn btn-primary btn-sm">Comprar</button>
-                    </div>
-                </div>
-               
-                <div class="col">
-                    <div class="product-card">
-                        <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:eco,w_210,h_210/v1/imagens/product/77350/526a2d8f-cdb8-4abe-b20c-1a77f9f5794c-kit-clinique-for-men-daily-energy-protection-3-produtos.png" class="product-img" alt="Produto 3">
-                        <h6 class="mt-2">Produto 3</h6>
-                        <p class="text-muted">R$ 79,90</p>
-                        <button class="btn btn-primary btn-sm">Comprar</button>
-                    </div>
-                </div>
-                
-                <div class="col">
-                    <div class="product-card">
-                        <img src="https://m.media-amazon.com/images/I/51uMUIjkA-L._SY355_.jpg" class="product-img" alt="Produto 4">
-                        <h6 class="mt-2">Produto 4</h6>
-                        <p class="text-muted">R$ 199,90</p>
-                        <button class="btn btn-primary btn-sm">Comprar</button>
-                    </div>
-                </div>
-                
-                <div class="col">
-                    <div class="product-card">
-                        <img src="https://amobeleza.vtexassets.com/arquivos/ids/239720/kit-facial-masculino-sabonete-liquido-corpo-e-rosto-cento-e-cinquenta-ml-hidratante-sessenta-ml-foto-zero.jpg?v=638092418572400000" class="product-img" alt="Produto 4">
-                        <h6 class="mt-2">Produto 4</h6>
-                        <p class="text-muted">R$ 79,90</p>
-                        <button class="btn btn-primary btn-sm">Comprar</button>
-                    </div>
-                </div>
-                
-                <div class="col"><div class="product-card"><img src="https://www.barbarana.com.br/cdn/shop/files/kitcompomada_c85d2214-f6a4-415b-855d-19fc9dd23d3a.jpg?v=1717181892" class="product-img" alt="Produto 6"><h6 class="mt-2">Produto 6</h6><p class="text-muted">R$ 189,90</p><button class="btn btn-primary btn-sm">Comprar</button></div></div>
-                <div class="col"><div class="product-card"><img src="https://images.tcdn.com.br/img/img_prod/743406/kit_barba_e_cabelo_maverick_6_produtos_51_1_20200825133125.jpg" class="product-img" alt="Produto 7"><h6 class="mt-2">Produto 7</h6><p class="text-muted">R$ 159,90</p><button class="btn btn-primary btn-sm">Comprar</button></div></div>
-                <div class="col"><div class="product-card"><img src="https://images.tcdn.com.br/img/img_prod/771789/combo_tonalizante_reactiv_color_2_shampoo_para_cabelo_masculino_tons_escuros_146_1_7a440326f60cb7e17972d9fee65a8dcd.jpg" class="product-img" alt="Produto 8"><h6 class="mt-2">Produto 8</h6><p class="text-muted">R$ 69,90</p><button class="btn btn-primary btn-sm">Comprar</button></div></div>
-                <div class="col"><div class="product-card"><img src="https://cdn.iset.io/assets/54712/produtos/12642/creme-teia.jpg" class="product-img" alt="Produto 9"><h6 class="mt-2">Produto 9</h6><p class="text-muted">R$ 189,90</p><button class="btn btn-primary btn-sm">Comprar</button></div></div>
-                <div class="col"><div class="product-card"><img src="https://cdn.sistemawbuy.com.br/arquivos/fe4d68cd5e03c1ddc727ca5432d7e662/produtos/65bd8e03bc281/8d964865e13b20a04dc9719969eb3758-65bd8e07e216d.jpeg" class="product-img" alt="Produto 10"><h6 class="mt-2">Produto 10</h6><p class="text-muted">R$ 99,90</p><button class="btn btn-primary btn-sm">Comprar</button></div></div>
-        
-                
-                <div class="col"><div class="product-card"><img src="https://ndperfumesimportados.com.br/wp-content/uploads/2024/06/Design-sem-nome-48.png" class="product-img" alt="Produto 11"><h6 class="mt-2">Produto 11</h6><p class="text-muted">R$ 399,90</p><button class="btn btn-primary btn-sm">Comprar</button></div></div>
-                <div class="col"><div class="product-card"><img src="https://cdn.awsli.com.br/2500x2500/2568/2568943/produto/269487645/img_2986-3x9cqigu2n.jpeg" class="product-img" alt="Produto 12"><h6 class="mt-2">Produto 12</h6><p class="text-muted">R$ 299,90</p><button class="btn btn-primary btn-sm">Comprar</button></div></div>
-                <div class="col"><div class="product-card"><img src="https://cdn.awsli.com.br/600x450/754/754482/produto/113182105/d14a99aefa.jpg" class="product-img" alt="Produto 13"><h6 class="mt-2">Produto 13</h6><p class="text-muted">R$ 179,90</p><button class="btn btn-primary btn-sm">Comprar</button></div></div>
-                <div class="col"><div class="product-card"><img src="https://www.qgbrindes.com.br/storage/products/QG249-conjunto-manicure-para-homens-com-estojo-Cinza-565.jpg" class="product-img" alt="Produto 14"><h6 class="mt-2">Produto 14</h6><p class="text-muted">R$ 119,90</p><button class="btn btn-primary btn-sm">Comprar</button></div></div>
-                <div class="col"><div class="product-card"><img src="https://drogariamoderna.vtexassets.com/arquivos/ids/247320-800-auto?v=638147287862130000&width=800&height=auto&aspect=true" class="product-img" alt="Produto 15"><h6 class="mt-2">Produto 15</h6><p class="text-muted">R$ 16,90</p><button class="btn btn-primary btn-sm">Comprar</button></div></div>
+                {% empty %}
+                    <p>Nenhum produto cadastrado ainda.</p>
+                {% endfor %}
             </div>
         </div>
-    </div>
 
        
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
