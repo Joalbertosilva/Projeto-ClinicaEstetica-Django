@@ -66,8 +66,12 @@ WSGI_APPLICATION = 'clinicaEstetica.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'clinica-estetica-projeto',      # Nome do banco criado no pgAdmin
+        'USER': 'postgres',              # Ou outro usuário que você criou
+        'PASSWORD': 'joao',    # Troque pela sua senha real
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -114,16 +118,14 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-MEDIA_URL = '/media/'  # Para imagens enviadas pelo usuário
+MEDIA_URL = '/media/'  
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # Define onde o Django procura os arquivos estáticos
+    os.path.join(BASE_DIR, 'static'),  
 ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Define onde as imagens enviadas serão salvas
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  
 
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
