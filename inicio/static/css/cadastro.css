@@ -1,0 +1,127 @@
+/* Geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Garantir que o menu continue com o estilo anterior */
+.navbar-custom {
+    width: 100%;
+    background: linear-gradient(90deg, #bddeef, #c6d9e1);
+}
+
+/* Estilização do botão de login */
+.btn-login {
+    background: linear-gradient(90deg, #95989a, #788287);
+    color: white;
+    border: none;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #587b96 !important;
+    transition: 0.3s;
+    color: #ffffff;
+}
+
+
+.icon-user {
+    width: 20px;
+    margin-right: 5px;
+}
+
+
+.search-bar {
+    max-width: 350px;
+    margin: 10px 10px 10px 0;
+}
+
+
+
+.container-cadastro {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.cadastro-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.btn-cadastro {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-cadastro:hover {
+    background-color: #0056b3;
+}
+
+p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+div.mensagens p.error {
+    background-color: #f8d7da !important; /* Vermelho claro */
+    color: #721c24 !important; /* Vermelho escuro */
+    border: 1px solid #f5c6cb !important;
+    padding: 10px !important;
+    border-radius: 5px !important;
+    font-size: 16px !important;
+    margin-bottom: 15px !important;
+    text-align: center !important;
+}
+
+div.mensagens p.success {
+    background-color: #d4edda !important; /* Verde claro */
+    color: #155724 !important; /* Verde escuro */
+    border: 1px solid #c3e6cb !important;
+    padding: 10px !important;
+    border-radius: 5px !important;
+    font-size: 16px !important;
+    margin-bottom: 15px !important;
+    text-align: center !important;
+}

@@ -1,0 +1,62 @@
+{% extends 'inicio/base.html' %}
+{% load static %}
+
+{% block title %}
+Perfil do Usuário
+{% endblock %}
+
+{% block content %}
+<div class="container-perfil">
+    <h2 class="perfil-titulo">Bem-vindo, {{ usuario.nome }}</h2>
+
+    <div class="perfil-conteudo">
+        <!-- Foto de Perfil -->
+        <div class="perfil-foto">
+            <div class="foto-container">
+                {% if usuario.foto_perfil %}
+                    <img src="{{ usuario.foto_perfil.url }}" alt="Foto de Perfil" class="foto-perfil-img">
+                {% else %}
+                    <img src="{% static 'img/default-user.png' %}" alt="Foto de Perfil Padrão" class="foto-perfil-img">
+                {% endif %}
+            </div>
+            <form method="POST" enctype="multipart/form-data" class="form-foto">
+                {% csrf_token %}
+                <label for="foto_perfil" class="form-label">Alterar Foto de Perfil:</label>
+                <input type="file" name="foto_perfil" accept="image/*" class="form-control">
+                <button type="submit" class="btn btn-primary mt-2">Atualizar Foto</button>
+            </form>
+        </div>
+
+        <!-- Detalhes do Usuário -->
+        <div class="perfil-detalhes">
+            <h3>Detalhes do Usuário</h3>
+            <p><strong>Email:</strong> {{ usuario.email }}</p>
+            <p><strong>Nome:</strong> {{ usuario.nome }}</p>
+            <p><strong>Telefone:</strong> {{ usuario.telefone|default:"Não informado" }}</p>
+            <p><strong>Endereço:</strong> {{ usuario.endereco|default:"Não informado" }}</p>
+        </div>
+    </div>
+
+    <!-- Agenda e Produtos -->
+    <div class="perfil-extra">
+        <div class="perfil-agenda">
+            <h3>Minha Agenda</h3>
+            <p>Você não possui compromissos agendados.</p>
+            <a href="{% url 'agenda' %}" class="btn btn-outline-primary">Ver Agenda</a>
+        </div>
+
+        <div class="perfil-produtos">
+            <h3>Produtos Comprados</h3>
+            <p>Você ainda não comprou nenhum produto.</p>
+            <a href="{% url 'produtos' %}" class="btn btn-outline-primary">Ver Produtos</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/perfil.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+{% endblock %}  

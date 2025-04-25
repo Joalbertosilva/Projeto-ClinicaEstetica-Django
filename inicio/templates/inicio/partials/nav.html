@@ -4,12 +4,10 @@
             
             <a class="navbar-brand fw-bold text-white" href="{% url 'index' %}">MobStyle</a>
             
-            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
     
-            
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
@@ -23,17 +21,28 @@
                     </li>
                 </ul>
     
-                
                 <form class="d-flex me-3">
                     <input class="form-control search-bar" type="search" placeholder="Buscar..." aria-label="Search">
                     <button class="btn btn-outline-light" type="submit">Buscar</button>
                 </form>
     
-                
-                <a href="{% url 'login' %}" class="btn btn-login d-flex align-items-center">
-                    <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="User Icon" class="icon-user">
-                    Fazer Login
-                </a>
+                {% if user.is_authenticated %}
+                    <div class="d-flex align-items-center">
+                        {% if user.usuario.foto_perfil %}
+                            <img src="{{ user.usuario.foto_perfil.url }}" alt="Foto de Perfil" class="icon-user" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover; margin-right: 10px;">
+                        {% else %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="User Icon" class="icon-user" style="width: 30px; height: 30px; margin-right: 10px;">
+                        {% endif %}
+                        <a href="{% url 'perfil' %}" class="btn btn-login">Meu Perfil</a>
+                        <a href="{% url 'logout' %}" class="btn btn-outline-light ms-2">Sair</a>                    
+                    </div>
+                        {% else %}
+                        <a href="{% url 'login' %}" class="btn btn-login d-flex align-items-center">
+                            <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="User Icon" class="icon-user">
+                            Fazer Login
+                        </a>
+                        {% endif %}
             </div>
         </div>
     </nav>
+</div>

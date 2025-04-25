@@ -18,6 +18,17 @@
 <body>
     
     {% block content %}
+
+    {% if messages %}
+    <div class="container mt-3">
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
     
     </div>
     <div class="container-introducao">
@@ -30,7 +41,7 @@
             </p>
         </div>
         <div class="imagem-um">
-            <img src="https://www.bodyhealthbrasil.com/wp-content/uploads/2023/09/Estetica-para-homens-oportunidades-para-sua-clinica-de-estetica.jpg" alt="">
+            <img src="https://www.esteticaeclinica.com.br/clinica/imagens/endereco-de-clinica-de-estetica-masculina.jpg" alt="Imagem de Introdução" style="width: 100%; height: auto;">
         </div>
     </div>
 
@@ -46,45 +57,20 @@
     </div>
 
     <section class="apresentacao">
-        <div class="container-apresentacao"> 
-            <h2>Promoções da semana</h2>
-        </div>
-
-        <div class="container-servicos">
-            <div class="servico">
-                <img src="https://studioenso.com.br/wp-content/uploads/2020/11/1-espuma.jpg" alt="Barboterapia">
-                <h3>Barboterapia</h3>
-                <p>De <span class="preco-antigo">R$ 80,00</span> por R$ 50,00</p>
-            </div>
-
-            <div class="servico">
-                <img src="https://estetica.clinicaeditare.com.br/imagens/onde-faz-limpeza-pele-homem.jpg" alt="Limpeza facial">
-                <h3>Limpeza Facial</h3>
-                <p>De <span class="preco-antigo">R$ 60,00</span> por R$ 40,00</p>
-            </div>
-
-            <div class="servico">
-                <img src="https://www.beautymarket.es/estetica/fotos/16489_notbme2grande.jpg" alt="Manicure">
-                <h3>Manicure</h3>
-                <p>De <span class="preco-antigo">R$ 70,00</span> por R$ 45,00</p>
-            </div>  
-            <div class="servico">
-                <img src="https://a-static.mlcdn.com.br/1500x1500/maquina-de-barbear-aparador-de-pelos-3-em-1-recarregavel-110-220v-daling-dl-9006/vfmagazineltda/15946762076/c905403a17e791ea93a46cadec7540ec.jpeg" alt="Barbeador">
-                <h3>Barbeador</h3>
-                <p>De <span class="preco-antigo">R$ 150,00</span> por R$ 110,00</p>
-            </div>
-            <div class="servico">
-                <img src="https://barbabrasil.com/cdn/shop/products/pomada_molhado_50.jpg?v=1613496573" alt="Pomada para cabelo">
-                <h3>Pomada para cabelo</h3>
-                <p>De <span class="preco-antigo">R$ 30,00</span> por R$ 20,00</p>
-            </div>
-            <div class="servico">
-                <img src="https://amobeleza.vtexassets.com/arquivos/ids/239720/kit-facial-masculino-sabonete-liquido-corpo-e-rosto-cento-e-cinquenta-ml-hidratante-sessenta-ml-foto-zero.jpg?v=638092418572400000" alt="Kit Facial">
-                <h3>Kit Facial</h3>
-                <p>De <span class="preco-antigo">R$ 200,00</span> por R$ 150,00</p>
-            </div>
+        <h2>Promoções da semana</h2>
+        <div class="container-produto">
+            {% for produto in produtos %}
+                <div class="produto">
+                    <img src="{{ produto.imagem_url }}" alt="{{ produto.nome }}">
+                    <h3>{{ produto.nome }}</h3>
+                    <p>De <span class="preco-antigo">R$ {{ produto.preco }}</span> por R$ {{ produto.preco_com_desconto|floatformat:2 }}</p>
+                </div>
+            {% empty %}
+                <p>Nenhum produto em promoção no momento.</p>
+            {% endfor %}
         </div>
     </section>
+    
     
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -96,7 +82,15 @@
             window.location.href = `/${pagina}/`;
         }
         </script>
-    
+    <script>
+        setTimeout(function() {
+            let alerts = document.querySelectorAll('.alert');
+            alerts.forEach(alert => {
+                alert.classList.remove('show');
+                alert.classList.add('fade');
+            });
+        }, 3000); // 3000ms = 3 segundos
+    </script>
     {% endblock %}
 </body>
 </html>

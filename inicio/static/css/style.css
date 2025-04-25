@@ -100,7 +100,7 @@
     font-weight: bold;
 }
 
-.container-servicos {
+.container-produto {
     display: flex;
     flex-wrap: wrap; /* Permite quebrar linha */
     justify-content: space-between;
@@ -109,7 +109,7 @@
     margin-right: 50px;
 }
 
-.servico {
+.produto {
     padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
@@ -119,16 +119,16 @@
     color: white;
     cursor: pointer;
     transition: 0.3s ease-in-out;
-    width: calc(33.33% - 90px); 
+    width: calc(33.33% - 100px); 
     height: auto;
     text-align: center;
 }
 
-.servico:hover {
+.produto:hover {
     background-color: #2980b9;  
 }
-.servico img {
-    width: 100%;
+.produto img {
+    width: 80%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -139,4 +139,12 @@
     text-decoration: line-through;
     color: red; /* Opcional: deixa o preço antigo mais destacado */
     font-weight: bold;
+}
+
+.alert {
+    max-width: 500px; /* Define a largura máxima */
+    margin: 10px auto; /* Centraliza a mensagem horizontalmente */
+    padding: 15px; /* Ajusta o espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra leve */
 }
