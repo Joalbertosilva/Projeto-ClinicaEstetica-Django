@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Produto
 from decimal import Decimal
 from django.contrib.auth import authenticate, login
-from .models import Usuario
+from .models import Usuario, Profissional
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.shortcuts import render
@@ -95,7 +95,8 @@ def servicos(request):
     return render(request, 'inicio/servicos.html')
 
 def profissionais(request):
-    return render(request, 'inicio/profissionais.html')
+    lista_profissionais = Profissional.objects.all()  # Busca todos os profissionais
+    return render(request, 'inicio/profissionais.html', {'profissionais': lista_profissionais})
 
 def agenda(request):
     return render(request, 'inicio/agenda.html')

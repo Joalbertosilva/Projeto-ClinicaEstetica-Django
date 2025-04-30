@@ -2,17 +2,17 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 
 class UsuarioManager(BaseUserManager):
-    def create_user(self, email, senha=None, **extra_fields):  # Alterado de 'password' para 'senha'
+    def create_user(self, email, senha=None, **extra_fields):  
         if not email:
             raise ValueError('O email é obrigatório')
         email = self.normalize_email(email)
-        extra_fields.setdefault('is_active', True)  # Clientes normais são ativos por padrão
+        extra_fields.setdefault('is_active', True)  
         user = self.model(email=email, **extra_fields)
-        user.set_password(senha)  # Usando 'senha' para definir a senha
+        user.set_password(senha) 
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, senha=None, **extra_fields):  # Alterado de 'password' para 'senha'
+    def create_superuser(self, email, senha=None, **extra_fields):  
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
 
@@ -21,13 +21,13 @@ class UsuarioManager(BaseUserManager):
         if extra_fields.get('is_superuser') is not True:
             raise ValueError('Superuser deve ter is_superuser=True.')
 
-        return self.create_user(email, senha, **extra_fields)  # Passando 'senha'
+        return self.create_user(email, senha, **extra_fields)  
 
 class Usuario(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     nome = models.CharField(max_length=255)
-    endereco = models.TextField(blank=True, null=True)  # Endereço do cliente
-    telefone = models.CharField(max_length=15, blank=True, null=True)  # Telefone do cliente
+    endereco = models.TextField(blank=True, null=True)  
+    telefone = models.CharField(max_length=15, blank=True, null=True)  
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
@@ -65,7 +65,7 @@ class Profissional(models.Model):
     nome = models.CharField(max_length=100)
     especialidade = models.CharField(max_length=100)
     contato = models.CharField(max_length=15)
-    foto = models.ImageField(upload_to='fotos_profissionais/', blank=True, null=True)  # Adicionando imagem para o profissional
+    foto = models.ImageField(upload_to='fotos_profissionais/', blank=True, null=True)  
 
     def __str__(self):
         return self.nome

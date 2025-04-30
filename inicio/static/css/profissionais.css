@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar-custom {
+    width: 100%;
+    background: linear-gradient(90deg, #bddeef, #c6d9e1);
+}
+
+
+.btn-login {
+    background: linear-gradient(90deg, #95989a, #788287);
+    color: white;
+    border: none;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #587b96 !important;
+    transition: 0.3s;
+    color: #ffffff;
+}
+
+
+.icon-user {
+    width: 20px;
+    margin-right: 5px;
+}
+
+
+.search-bar {
+    max-width: 350px;
+    margin: 10px 10px 10px 0;
+}
+
+
+.alert {
+    max-width: 500px !important; 
+    margin: 10px auto; 
+    padding: 15px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+}
+
+/* Estilo para as imagens dos profissionais */
+.card-img-top {
+    width: 80%; /* Define a largura como 80% do container */
+    height: auto; /* Mantém a proporção da imagem */
+    margin: 0 auto; /* Centraliza a imagem horizontalmente */
+    display: block; /* Garante que a imagem seja tratada como um bloco */
+    border-radius: 8px; /* Adiciona bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra leve */
+}

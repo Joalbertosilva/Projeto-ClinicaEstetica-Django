@@ -1,0 +1,36 @@
+{% extends 'inicio/base.html' %}
+{% load static %}
+{% block title %}
+Profissionais
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Nossos Profissionais</h1>
+    <div class="row">
+        {% for profissional in profissionais %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                {% if profissional.foto %}
+                <img src="{{ profissional.foto.url }}" class="card-img-top" alt="{{ profissional.nome }}">
+                {% else %}
+                <img src="{% static 'img/default-user.png' %}" class="card-img-top" alt="Foto padrão">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ profissional.nome }}</h5>
+                    <p class="card-text"><strong>Especialidade:</strong> {{ profissional.especialidade }}</p>
+                    <p class="card-text"><strong>Contato:</strong> {{ profissional.contato }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/profissionais.css' %}">
+{% endblock %}

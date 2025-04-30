@@ -10,7 +10,6 @@ Perfil do Usuário
     <h2 class="perfil-titulo">Bem-vindo, {{ usuario.nome }}</h2>
 
     <div class="perfil-conteudo">
-        <!-- Foto de Perfil -->
         <div class="perfil-foto">
             <div class="foto-container">
                 {% if usuario.foto_perfil %}
@@ -27,7 +26,6 @@ Perfil do Usuário
             </form>
         </div>
 
-        <!-- Detalhes do Usuário -->
         <div class="perfil-detalhes">
             <h3>Detalhes do Usuário</h3>
             <p><strong>Email:</strong> {{ usuario.email }}</p>
@@ -36,8 +34,7 @@ Perfil do Usuário
             <p><strong>Endereço:</strong> {{ usuario.endereco|default:"Não informado" }}</p>
         </div>
     </div>
-
-    <!-- Agenda e Produtos -->
+  
     <div class="perfil-extra">
         <div class="perfil-agenda">
             <h3>Minha Agenda</h3>
