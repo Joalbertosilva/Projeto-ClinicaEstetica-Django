@@ -69,13 +69,13 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Garantir que o menu continue com o estilo anterior */
+
 .navbar-custom {
     width: 100%;
     background: linear-gradient(90deg, #bddeef, #c6d9e1);
 }
 
-/* Estilização do botão de login */
+
 .btn-login {
     background: linear-gradient(90deg, #95989a, #788287);
     color: white;
@@ -103,9 +103,9 @@ a:hover {
 
 
 .alert {
-    max-width: 500px !important; /* Define a largura máxima */
-    margin: 10px auto; /* Centraliza a mensagem horizontalmente */
-    padding: 15px; /* Ajusta o espaçamento interno */
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra leve */
+    max-width: 500px !important; 
+    margin: 10px auto; 
+    padding: 15px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
 }
