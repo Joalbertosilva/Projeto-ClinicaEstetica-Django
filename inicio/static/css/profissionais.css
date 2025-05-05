@@ -35,21 +35,72 @@
     margin: 10px 10px 10px 0;
 }
 
+.container-apresentacao {
+    display: flex;
+    justify-content: space-between;
+    margin: 60px 10px 100px 60px;
+}
 
-.alert {
-    max-width: 500px !important; 
-    margin: 10px auto; 
-    padding: 15px; 
-    border-radius: 8px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+.texto-inicial {
+    width: 50%;
+    margin-top: 50px;
+    font-size: 24px;
+    color: #333;
+}
+.texto-inicial p {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #666;
+}
+
+.container-inicial-profissionais {
+    margin-top: 70px;
+}
+
+.imagem-um img{
+    width: 100%;
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-left: 5rem;
+}
+
+.container-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os cards horizontalmente */
+    align-items: flex-start; /* Alinha os cards no topo */
+    margin-top: 50px; /* Espaçamento superior para o container */
+    margin-bottom: 50px; /* Espaçamento inferior para o container */
+    gap: 10px; /* Espaçamento entre os cards */
+}
+
+.card{
+    margin: 0 auto;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #dfe9f2; /* Cor de fundo clara */
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 350px; /* Largura fixa para os cards */
+}
+
+.card:hover {
+    background-color: #c6d9e1; /* Cor de fundo mais clara ao passar o mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais intensa ao passar o mouse */
+    transform: translateY(-2px); /* Leve elevação ao passar o mouse */
+    transition: transform 0.3s ease-in-out; /* Transição suave para a elevação */
 }
 
 /* Estilo para as imagens dos profissionais */
 .card-img-top {
-    width: 80%; /* Define a largura como 80% do container */
-    height: auto; /* Mantém a proporção da imagem */
+    width: 70%; /* Define a largura */
+    height: auto; /* Mantém a proporção */
     margin: 0 auto; /* Centraliza a imagem horizontalmente */
     display: block; /* Garante que a imagem seja tratada como um bloco */
     border-radius: 8px; /* Adiciona bordas arredondadas */
+    border: none; /* Remove qualquer borda */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra leve */
 }
