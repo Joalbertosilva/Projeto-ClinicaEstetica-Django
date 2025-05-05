@@ -5,25 +5,39 @@ Profissionais
 {% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <h1 class="text-center mb-4">Nossos Profissionais</h1>
-    <div class="row">
-        {% for profissional in profissionais %}
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                {% if profissional.foto %}
-                <img src="{{ profissional.foto.url }}" class="card-img-top" alt="{{ profissional.nome }}">
-                {% else %}
-                <img src="{% static 'img/default-user.png' %}" class="card-img-top" alt="Foto padrão">
-                {% endif %}
-                <div class="card-body">
-                    <h5 class="card-title">{{ profissional.nome }}</h5>
-                    <p class="card-text"><strong>Especialidade:</strong> {{ profissional.especialidade }}</p>
-                    <p class="card-text"><strong>Contato:</strong> {{ profissional.contato }}</p>
-                </div>
+<div class="container-inicial-profissionais">
+    <div class="container mt-5">
+        <h1 class="text-left mb-4">Profissionais da MobStyle</h1>
+        <div class="container-apresentacao">
+            <div class="texto-inicial">
+                <p class="text-justify">Na MobStyle, contamos com uma equipe de profissionais altamente qualificados e apaixonados pelo que fazem. Cada um deles traz consigo uma vasta experiência e conhecimento em suas respectivas áreas, garantindo que você receba o melhor atendimento e os tratamentos mais eficazes.</p>
+            <p class="text-justify">Conheça nossos profissionais e descubra como eles podem ajudar você a alcançar seus objetivos de beleza e bem-estar.</p>
+            <p class="text-justify">Estamos aqui para cuidar de você e proporcionar uma experiência única e transformadora.</p>
+            </div>
+            <div class="imagem-um">
+                <img src="https://www.esteticaeclinica.com.br/clinica/imagens/endereco-de-clinica-de-estetica-masculina.jpg" alt="Imagem de Introdução" style="width: 100%; height: auto;">
             </div>
         </div>
-        {% endfor %}
+        <div class="row">
+            {% for profissional in profissionais %}
+            <div class="col-md-4 mb-4">
+                <div class="container-cards">
+                    <div class="card">
+                        {% if profissional.foto %}
+                        <img src="{{ profissional.foto.url }}" class="card-img-top" alt="{{ profissional.nome }}">
+                        {% else %}
+                        <img src="{% static 'img/default-user.png' %}" class="card-img-top" alt="Foto padrão">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ profissional.nome }}</h5>
+                            <p class="card-text"><strong>Especialidade:</strong> {{ profissional.especialidade }}</p>
+                            <p class="card-text"><strong>Contato:</strong> {{ profissional.contato }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock %}
