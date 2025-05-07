@@ -7,16 +7,11 @@ Serviços
 
 {% block content %}
 <div class="container mt-5">
-    <h1 class="text-center mb-4">Escolha um Serviço</h1>
+    <h1 class="text-center mb-4">Serviços</h1>
     <div class="row">
         {% for servico in servicos %}
         <div class="col-md-4 mb-4">
             <div class="card">
-                {% if servico.imagem %}
-                <img src="{{ servico.imagem.url }}" class="card-img-top" alt="{{ servico.nome }}">
-                {% else %}
-                <img src="{% static 'img/default-user.png' %}" class="card-img-top" alt="Foto padrão">
-                {% endif %}
                 <div class="card-body">
                     <h5 class="card-title">{{ servico.nome }}</h5>
                     <p class="card-text">{{ servico.descricao }}</p>
