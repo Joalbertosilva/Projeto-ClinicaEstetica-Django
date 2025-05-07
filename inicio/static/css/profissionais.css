@@ -4,6 +4,8 @@
     box-sizing: border-box;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
 .navbar-custom {
     width: 100%;
     background: linear-gradient(90deg, #bddeef, #c6d9e1);
@@ -66,25 +68,50 @@
     margin-left: 5rem;
 }
 
+.container-nossos-profissionais {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    align-items: first baseline;
+    margin-top: 50px;
+}
+
+.container-nossos-profissionais h2{
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.container-nossos-profissionais p{
+    font-size: 16px;
+    color: #665;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
 .container-cards {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Centraliza os cards horizontalmente */
-    align-items: flex-start; /* Alinha os cards no topo */
-    margin-top: 50px; /* Espaçamento superior para o container */
-    margin-bottom: 50px; /* Espaçamento inferior para o container */
-    gap: 10px; /* Espaçamento entre os cards */
+    justify-content: center; 
+    align-items: flex-start; 
+    margin-top: 50px; 
+    margin-bottom: 50px; 
+    gap: 10px; 
 }
 
 .card{
     margin: 0 auto;
     padding: 15px;
     border-radius: 8px;
-    background-color: #dfe9f2; /* Cor de fundo clara */
+    background-color: #ffffff; /* Cor de fundo clara */
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 350px; /* Largura fixa para os cards */
+    max-width: 350px;
+    flex-grow: 1;
 }
 
 .card:hover {
