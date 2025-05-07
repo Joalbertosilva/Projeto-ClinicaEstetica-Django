@@ -1,0 +1,25 @@
+{% extends 'inicio/base.html' %}
+{% load static %}
+{% block title %}
+Finalizar Agendamento
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Finalizar Agendamento</h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Detalhes do Agendamento</h5>
+            <p class="card-text"><strong>Serviço:</strong> {{ servico.nome }}</p>
+            <p class="card-text"><strong>Profissional:</strong> {{ profissional.nome }}</p>
+            <p class="card-text"><strong>Data:</strong> {{ data }}</p>
+            <p class="card-text"><strong>Hora:</strong> {{ hora }}</p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success">Confirmar Agendamento</button>
+                <a href="{% url 'servicos' %}" class="btn btn-secondary">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

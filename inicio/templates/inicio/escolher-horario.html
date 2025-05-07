@@ -1,0 +1,29 @@
+{% extends 'inicio/base.html' %}
+{% load static %}
+
+{% block title %}
+Escolher Horário
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Escolha um Horário</h1>
+    <div class="row">
+        {% if horarios_disponiveis %}
+            {% for horario in horarios_disponiveis %}
+            <div class="col-md-4 mb-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ horario.data }}</h5>
+                        <p class="card-text">{{ horario.hora }}</p>
+                        <a href="{% url 'finalizar-agendamento' servico.id profissional.id horario.data horario.hora %}" class="btn btn-primary">Escolher Horário</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p class="text-center">Nenhum horário disponível nos próximos dias.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
