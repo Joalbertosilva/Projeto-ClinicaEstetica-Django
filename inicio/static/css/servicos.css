@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar-custom {
+    width: 100%;
+    background: linear-gradient(90deg, #bddeef, #c6d9e1);
+}
+
+
+.btn-login {
+    background: linear-gradient(90deg, #95989a, #788287);
+    color: white;
+    border: none;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #587b96 !important;
+    transition: 0.3s;
+    color: #ffffff;
+}
+
+
+.icon-user {
+    width: 20px;
+    margin-right: 5px;
+}
+
+
+.search-bar {
+    max-width: 350px;
+    margin: 10px 10px 10px 0;
+}

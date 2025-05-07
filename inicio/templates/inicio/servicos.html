@@ -1,11 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Ola mundo</h1>
-</body>
-</html>
+{% extends 'inicio/base.html' %}
+{% load static %}
+
+{% block title %}
+Serviços
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Escolha um Serviço</h1>
+    <div class="row">
+        {% for servico in servicos %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                {% if servico.imagem %}
+                <img src="{{ servico.imagem.url }}" class="card-img-top" alt="{{ servico.nome }}">
+                {% else %}
+                <img src="{% static 'img/default-user.png' %}" class="card-img-top" alt="Foto padrão">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ servico.nome }}</h5>
+                    <p class="card-text">{{ servico.descricao }}</p>
+                    <p class="card-text"><strong>Preço:</strong> R$ {{ servico.preco }}</p>
+                    <a href="{% url 'escolher-profissionais' servico.id %}" class="btn btn-primary">Escolher Serviço</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}    
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/servicos.css' %}">
+{% endblock %}
