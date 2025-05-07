@@ -17,6 +17,10 @@ urlpatterns = [
     path('login/', views.login_usuario, name='login'),
     path('perfil/', views.perfil_usuario, name='perfil'),
     path('logout/', views.logout_usuario, name='logout'),  
+    path('servicos/<int:servico_id>/profissionais/', views.escolher_profissional, name='escolher-profissionais'),
+    path('servicos/<int:servico_id>/profissionais/<int:profissional_id>/horarios/', views.escolher_horario, name='escolher-horario'),
+    path('servicos/<int:servico_id>/profissionais/<int:profissional_id>/horarios/<str:data>/<str:hora>/finalizar/', views.finalizar_agendamento, name='finalizar-agendamento'),
+    path('agenda/remover/<int:agendamento_id>/', views.remover_agendamento, name='remover_agendamento'),
 ] 
 
 if settings.DEBUG:
