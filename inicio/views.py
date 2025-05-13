@@ -10,6 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from datetime import datetime, timedelta, time
 from django.shortcuts import get_object_or_404
+from inicio.forms import UsuarioFormulario
 
 def index(request):
     produtos_promocao = Produto.objects.filter(em_promocao=True)
@@ -22,37 +23,24 @@ def index(request):
 
 def cadastro(request):
     if request.method == 'POST':
-        email = request.POST.get('email')
-        nome = request.POST.get('nome')
-        senha = request.POST.get('senha')
-        senha_confirmada = request.POST.get('senha_confirmada')
+        form = UsuarioFormulario(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            if Usuario.objects.filter(email=email).exists():
+                messages.error(request, 'Já existe um usuário com este e-mail.')
+            else:
+                usuario = form.save(commit=False)
+                senha = form.cleaned_data['senha']
+                usuario.set_password(senha)  
+                usuario.save()
+                messages.success(request, 'Cadastro realizado com sucesso!')
+                return redirect('login')
+        else:
+            messages.error(request, 'Erro ao realizar cadastro.')
+    else:
+        form = UsuarioFormulario()
 
-        if Usuario.objects.filter(email=email).exists():
-            return render(request, 'inicio/cadastro.html', {
-                'error_message': 'Este email já está em uso. Tente outro.'
-            })
-
-        if len(senha) < 8:
-            return render(request, 'inicio/cadastro.html', {
-                'error_message': 'A senha deve conter pelo menos 8 caracteres.'
-            })
-
-        if senha != senha_confirmada:
-            return render(request, 'inicio/cadastro.html', {
-                'error_message': 'As senhas não coincidem. Tente novamente.'
-            })
-
-        try:
-            usuario = Usuario.objects.create_user(email=email, nome=nome, senha=senha)
-            return render(request, 'inicio/cadastro.html', {
-                'success_message': 'Usuário cadastrado com sucesso!'
-            })
-        except IntegrityError:
-            return render(request, 'inicio/cadastro.html', {
-                'error_message': 'Erro ao cadastrar o usuário. Tente novamente.'
-            })
-
-    return render(request, 'inicio/cadastro.html')
+    return render(request, 'inicio/cadastro.html', {'form': form})
 
 def login_usuario(request):
     if request.method == 'POST':
