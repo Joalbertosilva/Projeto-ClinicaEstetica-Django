@@ -6,7 +6,8 @@ Meus Agendamentos
 {% endblock %}
 
 {% block content %}
-<div class="container mt-5">
+<div class="card">
+    <div class="container mt-5">
     <h1 class="text-center mb-4">Meus Agendamentos</h1>
     <ul class="list-group">
         {% for agendamento in agendamentos %}
@@ -24,4 +25,9 @@ Meus Agendamentos
         {% endfor %}
     </ul>
 </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/agenda.css' %}">
 {% endblock %}

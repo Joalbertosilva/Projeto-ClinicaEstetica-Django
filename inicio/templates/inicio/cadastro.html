@@ -9,45 +9,25 @@ Cadastro de Usuário
 <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
 {% endblock %}
 
-{% block extra_head %}
-
-{% endblock %}
-
 {% block content %}
 <div class="container-cadastro">
     <h2>Cadastro de Usuário</h2>
 
     <div class="mensagens">
-        {% if success_message %}
-            <p class="success">{{ success_message }}</p>
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li class="text-danger">{{ message }}</li>
+                {% endfor %}
+            </ul>
         {% endif %}
-        {% if error_message %}
-            <p class="error">{{ error_message }}</p>        
-        {% endif %}
-
     </div>
 
     <form method="POST" class="cadastro-form">
         {% csrf_token %}
-        <label for="nome">Nome:</label>
-        <input type="text" name="nome" required><br>
-        
-        <label for="email">Email:</label>
-        <input type="email" name="email" required><br>
-        
-        <label for="senha">Senha:</label>
-        <input type="password" name="senha" required><br>
-        
-        <label for="senha_confirmada">Confirmar Senha:</label>
-        <input type="password" name="senha_confirmada" required><br>
-
+        {{ form.as_p }} <!-- Renderiza os campos do formulário automaticamente -->
         <button type="submit" class="btn-cadastro">Cadastrar</button>
     </form>
     <p>Já tem uma conta? <a href="{% url 'login' %}">Faça login aqui</a></p>
 </div>
-
 {% endblock %}
-
-{% block extra_js %}
-{% endblock %}
-
