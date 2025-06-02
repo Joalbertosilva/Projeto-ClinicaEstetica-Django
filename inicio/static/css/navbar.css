@@ -1,0 +1,321 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* NAVBAR PRINCIPAL */
+.navbar-custom {
+  width: 100%;
+  background: #f7fafc; /* cor clara e moderna */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  min-height: 64px;
+  padding: 0 2.5rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+/* Hover na navbar */
+.navbar-custom:hover {
+  background: #e3eaf2;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+}
+
+/* Container centralizado */
+.navbar-custom .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+}
+
+/* LOGO */
+.navbar-brand {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1c3b57 !important;
+  letter-spacing: 2px;
+  margin-right: 2.5rem;
+  transition: color 0.3s;
+}
+.navbar-brand:hover {
+  color: #3b8bbd !important;
+}
+
+/* MENU */
+.navbar-nav {
+  margin-left: auto;
+  gap: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav .nav-link {
+  color: #22384a;
+  font-weight: 500;
+  font-size: 1.07rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+  position: relative;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  background: #e6f0fa;
+  color: #3b8bbd;
+  text-decoration: none;
+}
+
+/* Barra de pesquisa */
+.navbar-custom .search-form {
+  max-width: 320px;
+  width: 100%;
+  margin: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  background: #e6f0fa;
+  border-radius: 24px;
+  padding: 2px 6px;
+  box-shadow: 0 1px 4px rgba(30,60,90,0.04);
+}
+
+.navbar-custom .form-control {
+  flex-grow: 1;
+  height: 38px;
+  font-size: 1rem;
+  padding: 0 16px;
+  border: none;
+  border-radius: 20px 0 0 20px;
+  outline: none;
+  background-color: #fff;
+  color: #22384a;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.navbar-custom .form-control:focus {
+  background: #f7fafc;
+  box-shadow: 0 0 8px #6ec1e4;
+}
+.navbar-custom .form-control::placeholder {
+  color: #b0b8c1;
+  font-style: italic;
+}
+
+/* Botão de busca */
+.navbar-custom .btn-light {
+  width: 40px;
+  height: 38px;
+  border-radius: 0 20px 20px 0;
+  border: none;
+  background: #3b8bbd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.navbar-custom .btn-light:hover,
+.navbar-custom .btn-light:focus {
+  background: #6ec1e4;
+}
+.navbar-custom .btn-light img {
+  width: 20px;
+  height: 20px;
+  filter: invert(0.2);
+}
+
+/* Perfil */
+.perfil-img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e6f0fa;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 1px 4px rgba(30,60,90,0.07);
+  background: #fff;
+}
+.perfil-img:hover,
+.perfil-img:focus {
+  border-color: #6ec1e4;
+  box-shadow: 0 0 0 2px #6ec1e4;
+}
+
+/* Botões login/logout */
+.btn-login {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #3b8bbd;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  padding: 0.3rem 0.9rem;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-login:hover,
+.btn-login:focus {
+  background: #e6f0fa;
+  color: #1c3b57;
+  text-decoration: none;
+}
+
+.btn-logout {
+  padding: 0.3rem 1.1rem;
+  font-weight: 600;
+  font-size: 0.97rem;
+  color: #fff;
+  border: 2px solid #3b8bbd;
+  border-radius: 24px;
+  background: #3b8bbd;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  cursor: pointer;
+}
+.btn-logout:hover,
+.btn-logout:focus {
+  background: #6ec1e4;
+  color: #22384a;
+  border-color: #6ec1e4;
+}
+
+/* Esconde o hamburguer por padrão */
+.navbar-toggler {
+  display: none !important;
+  margin-left: 1rem;
+  border: none;
+  background: transparent !important;
+  align-items: center;
+  height: 44px;
+  width: 44px;
+  justify-content: center;
+  transition: background 0.2s;
+  /* Garante que o ícone fique centralizado */
+  padding: 0;
+}
+
+/* Ícone hamburguer escuro e visível */
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(30,60,90,0.8)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M6 10h20M6 16h20M6 22h20'/%3e%3c/svg%3e");
+  width: 24px;
+  height: 24px;
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+/* Só mostra quando navbar está compacta ou simplificada */
+.navbar-custom.compact ~ .navbar-toggler,
+.navbar-custom.simplificado ~ .navbar-toggler {
+  display: flex !important;
+  position: fixed;
+  top: 14px;
+  right: 32px;
+  z-index: 1200;
+  background: #3b8bbd;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(30,60,90,0.10);
+}
+
+/* Hover do hamburguer */
+.navbar-custom.compact ~ .navbar-toggler:hover,
+.navbar-custom.simplificado ~ .navbar-toggler:hover {
+  background: #6ec1e4;
+}
+
+/* Esconde o hamburguer quando o offcanvas está aberto */
+.offcanvas.show ~ .navbar-toggler {
+  display: none !important;
+}
+
+/* Ajuste para telas pequenas */
+@media (max-width: 991.98px) {
+  .navbar-custom.compact ~ .navbar-toggler,
+  .navbar-custom.simplificado ~ .navbar-toggler {
+    top: 14px;
+    right: 12px;
+  }
+  .navbar-nav {
+    margin-left: 0;
+  }
+  .navbar-custom .search-form {
+    max-width: 100%;
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+  .navbar-collapse {
+    display: none !important;
+  }
+}
+
+/* Compacta ao rolar */
+.navbar-custom.compact {
+  min-height: 48px;
+  padding: 0.1rem 1.2rem;
+  background: #e3eaf2;
+  box-shadow: 0 1px 8px rgba(30,60,90,0.10);
+}
+.navbar-custom.compact .navbar-brand {
+  font-size: 1.3rem;
+  margin-right: 1rem;
+}
+.navbar-custom.compact .navbar-nav {
+  gap: 1rem;
+}
+.navbar-custom.compact .nav-link,
+.navbar-custom.compact .btn-login,
+.navbar-custom.compact .btn-logout,
+.navbar-custom.compact .perfil-img {
+  font-size: 0.93rem;
+  padding: 0.18rem 0.5rem;
+}
+
+/* Espaço para o menu fixo */
+body {
+  padding-top: 64px;
+  background: #f7fafc;
+}
+
+/* Offcanvas */
+.offcanvas .navbar-nav {
+  width: 100%;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+.offcanvas-title {
+  margin: 0 auto;
+  font-weight: bold;
+  color: #3b8bbd;
+  letter-spacing: 2px;
+}
+
+/* Estado simplificado - menu hamburguer ativo */
+.navbar-custom.simplificado .navbar-nav,
+.navbar-custom.simplificado .search-form,
+.navbar-custom.simplificado .perfil-img,
+.navbar-custom.simplificado .btn-login,
+.navbar-custom.simplificado .btn-logout {
+  display: none !important;
+}
+.navbar-custom.simplificado.menu-aberto .navbar-nav,
+.navbar-custom.simplificado.menu-aberto .search-form,
+.navbar-custom.simplificado.menu-aberto .perfil-img,
+.navbar-custom.simplificado.menu-aberto .btn-login,
+.navbar-custom.simplificado.menu-aberto .btn-logout {
+  display: flex !important;
+}
+.navbar-custom.simplificado .navbar-brand {
+  margin-right: auto;
+  font-size: 1.1rem;
+}

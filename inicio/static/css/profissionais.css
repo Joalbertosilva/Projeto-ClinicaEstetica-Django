@@ -6,35 +6,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
-.navbar-custom {
-    width: 100%;
-    background: linear-gradient(90deg, #bddeef, #c6d9e1);
-}
-
-
-.btn-login {
-    background: linear-gradient(90deg, #95989a, #788287);
-    color: white;
-    border: none;
-    transition: 0.3s;
-}
-
-.btn-login:hover {
-    background-color: #587b96 !important;
-    transition: 0.3s;
-    color: #ffffff;
-}
-
-
-.icon-user {
-    width: 20px;
-    margin-right: 5px;
-}
-
-
-.search-bar {
-    max-width: 350px;
-    margin: 10px 10px 10px 0;
+body {
+    background: #f7fafc;
+    font-family: 'Poppins', sans-serif;
 }
 
 .container-apresentacao {
@@ -91,43 +65,156 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.container-cards {
+/* SUGESTÃO: Use .row para alinhar os cards se estiver usando Bootstrap, ou .container-cards para flex puro */
+.container-cards, .row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; 
-    align-items: flex-start; 
-    margin-top: 50px; 
-    margin-bottom: 50px; 
-    gap: 10px; 
+    justify-content: center;
+    align-items: stretch;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    gap: 32px;
 }
 
 .card{
-    margin: 0 auto;
-    padding: 15px;
-    border-radius: 8px;
-    background-color: #ffffff; /* Cor de fundo clara */
+    margin: 0;
+    padding: 24px 18px 18px 18px;
+    border-radius: 18px;
+    background-color: #ffffff;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 350px; /* Largura fixa para os cards */
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    box-shadow: 0 6px 24px rgba(30,60,90,0.10);
+    width: 350px;
     max-width: 350px;
+    min-height: 540px;
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
 }
 
 .card:hover {
-    background-color: #c6d9e1; /* Cor de fundo mais clara ao passar o mouse */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais intensa ao passar o mouse */
-    transform: translateY(-2px); /* Leve elevação ao passar o mouse */
-    transition: transform 0.3s ease-in-out; /* Transição suave para a elevação */
+    background-color: #eaf6fb;
+    box-shadow: 0 12px 32px rgba(30,60,90,0.18);
+    transform: translateY(-6px) scale(1.03);
 }
 
 /* Estilo para as imagens dos profissionais */
 .card-img-top {
-    width: 70%; /* Define a largura */
-    height: auto; /* Mantém a proporção */
-    margin: 0 auto; /* Centraliza a imagem horizontalmente */
-    display: block; /* Garante que a imagem seja tratada como um bloco */
-    border-radius: 8px; /* Adiciona bordas arredondadas */
-    border: none; /* Remove qualquer borda */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra leve */
+    width: 90%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin: 0 auto 18px auto;
+    box-shadow: 0 2px 8px rgba(30,60,90,0.07);
+    display: block;
+    background: #f7fafc;
+}
+
+.card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.card-title {
+    font-size: 1.4em;
+    color: #1c3b57;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.card-text {
+    font-size: 1.08em;
+    color: #444;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.card-text strong {
+    color: #3b8bbd;
+}
+
+.btn {
+    background: linear-gradient(90deg, #3b8bbd 60%, #6ec1e4 100%);
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    font-size: 1.08rem;
+    border-radius: 8px;
+    padding: 10px 28px;
+    box-shadow: 0 2px 8px rgba(30,60,90,0.07);
+    transition: background 0.2s, transform 0.2s;
+    margin-top: auto;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #6ec1e4 60%, #3b8bbd 100%);
+    color: #22384a;
+    transform: scale(1.04);
+}
+
+.scroll-down-indicator span {
+    display: block;
+    width: 32px;
+    height: 32px;
+    border-bottom: 4px solid #3b8bbd;
+    border-right: 4px solid #3b8bbd;
+    transform: rotate(45deg);
+    animation: bounce 1.2s infinite;
+    margin-left: 0;
+    margin-top: -200px;
+}
+
+.scroll-down-indicator.scroll-down-left {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start !important;
+    margin-top: -20px;
+    margin-bottom: 30px;
+    padding-left: 16px;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0) rotate(45deg);}
+    50% { transform: translateY(16px) rotate(45deg);}
+}
+
+@media (max-width: 991px) {
+    .container-apresentacao {
+        flex-direction: column;
+        margin: 30px 10px 60px 10px;
+    }
+    .imagem-um img {
+        margin-left: 0;
+        max-width: 100%;
+    }
+    .card-img-top {
+        height: 220px;
+    }
+    .card {
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 600px) {
+    .container-cards, .row {
+        gap: 10px;
+    }
+    .card-img-top {
+        height: 160px;
+    }
+    .card {
+        min-height: 320px;
+        padding-bottom: 10px;
+        width: 95vw;
+        max-width: 98vw;
+    }
 }
