@@ -1,3 +1,9 @@
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/anuncio.css' %}">
+{% endblock %}
+
 <div class="anuncio-container">
     <div class="anuncio-texto">
         <h2 class="anuncio-titulo">Transforme sua Beleza</h2>
@@ -5,6 +11,6 @@
         <a href="{% url 'servicos' %}" class="btn-anuncio">Saiba Mais</a>
     </div>
     <div class="anuncio-imagem">
-        <img src="https://www.focusquimica.com/wp-content/uploads/2016/08/ijddhfg.jpg" alt="Promoção de Estética">
+        <img src="https://institutoburmannebastos.com.br/media/5f073dc00636d79f6001200a761901a4e9c5af1c3f4701566488771-.jpg" alt="Promoção de Estética">
     </div>
 </div>

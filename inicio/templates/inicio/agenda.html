@@ -9,25 +9,36 @@ Meus Agendamentos
 <div class="card">
     <div class="container mt-5">
     <h1 class="text-center mb-4">Meus Agendamentos</h1>
-    <ul class="list-group">
-        {% for agendamento in agendamentos %}
-        <li class="list-group-item">
-            <strong>Data:</strong> {{ agendamento.data }} <br>
-            <strong>Hora:</strong> {{ agendamento.hora }} <br>
-            <strong>Profissional:</strong> {{ agendamento.profissional.nome }}
-            <form method="post" action="{% url 'remover_agendamento' agendamento.id %}" class="mt-2">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-danger btn-sm">Remover</button>
-            </form>
-        </li>
-        {% empty %}
-        <li class="list-group-item text-center">Você ainda não possui agendamentos.</li>
-        {% endfor %}
-    </ul>
+
+    {% if precisa_login %}
+        <div class="alert alert-warning mt-4" role="alert">
+            Você precisa estar logado para acessar sua agenda.
+            <a href="{% url 'login' %}?next={{ request.path }}" class="btn btn-sm btn-primary ms-2">Fazer Login</a>
+        </div>
+    {% else %}
+        <ul class="list-group">
+            {% for agendamento in agendamentos %}
+            <li class="list-group-item">
+                <strong>Data:</strong> {{ agendamento.data }} <br>
+                <strong>Hora:</strong> {{ agendamento.hora }} <br>
+                <strong>Profissional:</strong> {{ agendamento.profissional.nome }}
+                <form method="post" action="{% url 'remover_agendamento' agendamento.id %}" class="mt-2">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-sm">Remover</button>
+                </form>
+            </li>
+            {% empty %}
+            <li class="list-group-item text-center">Você ainda não possui agendamentos.</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 </div>
 </div>
 {% endblock %}
-
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/agenda.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+{{ block.super }}
 {% endblock %}

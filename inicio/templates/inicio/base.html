@@ -27,4 +27,22 @@
     {% include 'inicio/partials/footer.html' %}
 
 </body>
+
+{% block extra_js %}
+<script>
+window.addEventListener('scroll', function() {
+  const navbar = document.querySelector('.navbar-custom');
+  if (window.scrollY >= 10) {
+    navbar.classList.add('simplificado');
+    navbar.classList.remove('compact');
+  } else if (window.scrollY > 10) {
+    navbar.classList.add('compact');
+    navbar.classList.remove('simplificado');
+  } else {
+    navbar.classList.remove('compact', 'simplificado');
+  }
+});
+</script>
+
+{% endblock %}
 </html>

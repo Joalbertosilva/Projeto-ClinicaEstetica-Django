@@ -14,9 +14,17 @@ Finalizar Agendamento
             <p class="card-text"><strong>Profissional:</strong> {{ profissional.nome }}</p>
             <p class="card-text"><strong>Data:</strong> {{ data }}</p>
             <p class="card-text"><strong>Hora:</strong> {{ hora }}</p>
+            
+            {% if precisa_login %}
+            <div class="alert alert-warning mt-3" role="alert">
+                Você precisa estar logado para confirmar o agendamento.
+                <a href="{% url 'login' %}?next={{ request.path }}" class="btn btn-sm btn-primary ms-2">Fazer Login</a>
+            </div>
+            {% endif %}
+            
             <form method="post">
                 {% csrf_token %}
-                <button type="submit" class="btn btn-success">Confirmar Agendamento</button>
+                <button type="submit" class="btn btn-success" {% if precisa_login %}disabled{% endif %}>Confirmar Agendamento</button>
                 <a href="{% url 'servicos' %}" class="btn btn-secondary">Cancelar</a>
             </form>
         </div>
@@ -26,4 +34,8 @@ Finalizar Agendamento
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/finalizar-agendamento.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+{{ block.super }}
 {% endblock %}

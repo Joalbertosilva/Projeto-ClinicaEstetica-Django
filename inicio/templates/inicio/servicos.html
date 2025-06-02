@@ -1,12 +1,33 @@
 {% extends 'inicio/base.html' %}
 {% load static %}
-
-{% block title %}
-Serviços
-{% endblock %}
+{% block title %}Serviços{% endblock %}
 
 {% block content %}
 <div class="container mt-5">
+
+    <!-- Descrição curta no topo -->
+    <div class="mb-4 p-3 rounded" style="background: #eaf6fb;">
+        <h2 class="mb-2" style="color:#1c3b57; font-weight:700;">Nossos Diferenciais</h2>
+        <p style="color:#3b8bbd; font-size:1.1em;">
+            Nossa clínica oferece atendimento personalizado, profissionais altamente qualificados e um ambiente moderno e acolhedor. Escolha o serviço ideal para você e viva a melhor experiência em estética masculina!
+        </p>
+    </div>
+
+    <!-- Filtros/Categorias -->
+    <div class="mb-4">
+        <form method="get" class="d-flex flex-wrap gap-2 align-items-center">
+            <label for="categoria" class="me-2 fw-bold" style="color:#1c3b57;">Filtrar por especialidade:</label>
+            <select name="categoria" id="categoria" class="form-select" style="max-width:220px;">
+                <option value="">Todas</option>
+                <option value="Massagem" {% if request.GET.categoria == "Massagem" %}selected{% endif %}>Massagem</option>
+                <option value="Depilação" {% if request.GET.categoria == "Depilação" %}selected{% endif %}>Depilação</option>
+                <option value="Barbearia" {% if request.GET.categoria == "Barbearia" %}selected{% endif %}>Barbearia</option>
+                <option value="Limpeza de Pele" {% if request.GET.categoria == "Limpeza de Pele" %}selected{% endif %}>Limpeza de Pele</option>
+            </select>
+            <button type="submit" class="btn" style="margin-left:10px;">Filtrar</button>
+        </form>
+    </div>
+
     <h1 class="text-center mb-4">Serviços</h1>
     <div class="row">
         {% for servico in servicos %}
@@ -16,18 +37,39 @@ Serviços
                     <h5 class="card-title">{{ servico.nome }}</h5>
                     <p class="card-text">{{ servico.descricao }}</p>
                     <p class="card-text"><strong>Preço:</strong> R$ {{ servico.preco }}</p>
-                    <a href="{% url 'escolher-profissionais' servico.id %}" class="btn btn-primary">Escolher Serviço</a>
+                    <div class="mb-2">
+                        {% if servico.avaliacao %}
+                            {% for i in "12345" %}
+                                {% if forloop.counter <= servico.avaliacao %}
+                                    <i class="fas fa-star" style="color:#f7b731;"></i>
+                                {% else %}
+                                    <i class="far fa-star" style="color:#f7b731;"></i>
+                                {% endif %}
+                            {% endfor %}
+                            <span class="ms-2" style="color:#888;">{{ servico.avaliacao|floatformat:1 }}/5</span>
+                        {% else %}
+                            <span style="color:#888;">Sem avaliações</span>
+                        {% endif %}
+                    </div>
+                    <a href="{% url 'escolher-profissionais' servico.id %}" class="btn">Escolher Serviço</a>
                 </div>
             </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <p class="text-center">Nenhum serviço encontrado.</p>
         </div>
         {% endfor %}
     </div>
 </div>
 {% endblock %}
 
-{% block extra_js %}    
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+{{ block.super }}
 {% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/servicos.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 {% endblock %}

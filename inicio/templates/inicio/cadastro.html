@@ -31,3 +31,7 @@ Cadastro de Usuário
     <p>Já tem uma conta? <a href="{% url 'login' %}">Faça login aqui</a></p>
 </div>
 {% endblock %}
+
+{% block extra_js %}
+{{ block.super }}
+{% endblock %}
